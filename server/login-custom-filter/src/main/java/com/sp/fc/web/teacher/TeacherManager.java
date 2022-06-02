@@ -7,13 +7,15 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.Set;
 
+@Component
 public class TeacherManager implements AuthenticationProvider, InitializingBean {
 
-    private HashMap<String, Teacher> teacherDB = new HashMap<>();
+    private final HashMap<String, Teacher> teacherDB = new HashMap<>();
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
